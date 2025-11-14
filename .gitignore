@@ -1,0 +1,29 @@
+# PowerShell specific
+*.ps1xml
+*.psc1
+
+# Build artifacts
+bin/
+obj/
+*.dll
+*.exe
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio Code
+.vscode/
+
+# PowerShell Gallery
+*.nupkg
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+temp/
