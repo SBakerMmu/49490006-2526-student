@@ -26,34 +26,29 @@ Scripts are located in the `scripts/` directory. To run a script:
 .\scripts\ScriptName.ps1
 ```
 
-### Using Modules
+## DataSets
 
-Modules are located in the `modules/` directory. To import a module:
+**Process-HESAData.ps1** filters HESA (2025) ‘Table 49 - HE student enrolments by HE provider and subject of study 2014/15 to 2023/24’. Available at: https://www.hesa.ac.uk/data-and-analysis/students/table-49.zip (Accessed: 15 November 2025).
 
-```powershell
-Import-Module .\modules\ModuleName
+
+### Launch Configuration
+
+For debugging in VS Code, create a launch configuration. Although args is an array, it usually works best to put all the arguments in a single string
+
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "PowerShell: Debug Process-Script.ps1",
+            "type": "PowerShell",
+            "request": "launch",
+            "script": "${workspaceFolder}\\scripts\\Script.ps1",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+        }
+    ]
+}
 ```
 
-## Requirements
 
-- PowerShell 5.1 or later
-- Windows PowerShell or PowerShell Core
-
-## Getting Started
-
-1. Clone this repository
-2. Navigate to the repository directory
-3. Run scripts from the `scripts/` directory
-4. Import modules from the `modules/` directory as needed
-
-## Contributing
-
-When adding new scripts or modules:
-1. Place scripts in the `scripts/` directory
-2. Place modules in the `modules/` directory
-3. Document your code with proper comments
-4. Update this README if adding new functionality
-
-## License
-
-This project is for educational purposes.
