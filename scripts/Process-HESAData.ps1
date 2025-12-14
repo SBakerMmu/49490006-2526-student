@@ -94,14 +94,18 @@ if (Test-Path $OutputFile) {
 New-Item -Path $OutputFile -ItemType File -Force | Out-Null 
 Set-Content -Path $OutputFile -Value "UKPRN,HE provider,Level of study,Mode of study,Country of HE provider,Region of HE provider,CAH level marker,CAH level subject,Academic Year,Number" -Encoding utf8NoBOM
 
-# Resolve input files (support wildcards and directories)
+$filter = $computingFilterExpression
+
+Write-Output "Filter applied: $($filter)."
+
+
 foreach ($in in $InputFiles) {
     if (Test-Path $in) {
-        Write-CsvFile -InputPath $in -OutputPath $OutputFile -Filter $highLevelFilterExpression -ZeroNumberFilter $zeroNumberFilter
+        Write-CsvFile -InputPath $in -OutputPath $OutputFile -Filter $computingFilterExpression -ZeroNumberFilter $zeroNumberFilter
     }
 } 
 
-Write-Output "Merged $($InputFiles.Count) file(s) into '$OutputFile'."
+Write-Output "Merged $($InputFiles.Count) file(s) into $($OutputFile)."
 
 
 
